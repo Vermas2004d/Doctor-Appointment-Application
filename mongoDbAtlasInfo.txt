@@ -1,0 +1,25 @@
+// This is when the database actually gets created
+const newDoctor = new Doctor({ name: "Dr. Smith", speciality: "Cardiologist" })
+await newDoctor.save() // ← Database "prescripto" is created NOW!
+```
+
+---
+
+## **MongoDB's Lazy Creation Principle:**
+
+MongoDB follows **"lazy creation"**:
+- **Databases** are created when the first collection is created
+- **Collections** are created when the first document is inserted
+
+So your connection says "I want to use `prescripto`", but MongoDB says "I'll create it when you actually store something in it."
+
+---
+
+## **Visual Timeline:**
+```
+1. mongoose.connect() → "I want to use 'prescripto' database"
+   └─ Database prescripto: Does NOT exist yet ❌
+
+2. First data insertion → await doctor.save()
+   └─ Database prescripto: NOW created! ✅
+   └─ Collection 'doctors': NOW created! ✅
