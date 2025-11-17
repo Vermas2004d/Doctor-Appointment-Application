@@ -17,4 +17,4 @@ const userModel = mongoose.models.user || mongoose.model('user' , userSchema)
 //The mongoose.model() function creates and returns a MongoDB collection.
 
 
-export default doctorModel
+export default userModel

@@ -4,10 +4,6 @@ import { assets } from "../assets/assets.js";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// In this page we are leaving one functionality ,
-//that when user set thier profile picture then it will be updated
-// so that part is for the backend//
-
 const MyProfile = () => {
   const { userData, setUserData, token, backendUrl, loadUserProfileData } =
     useContext(AppContext);
@@ -119,11 +115,9 @@ const MyProfile = () => {
               <p>
                 <input
                   className="bg-gray-50"
-                  // In this code , i am changing the setUserData like ...prev.address , line1: e.target.address to
-                  // ...prev , address : {...prev.address , line1: e.target.address}
                   onChange={(e) =>
                     setUserData((prev) => ({
-                      ...prev, 
+                      ...prev,
                       address: {
                         ...prev.address,
                         line1: e.target.value,
@@ -216,4 +210,3 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
-
