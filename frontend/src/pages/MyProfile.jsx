@@ -59,7 +59,8 @@ const MyProfile = () => {
             <div className="inline-block relative cursor-pointer">
               <img
                 className="w-36 rounded opacity-75"
-                src={image ? URL.createObjectURL(image) : userData.image}
+                // src={image ? URL.createObjectURL(image) : userData.image}
+                src={image ? userData.image : assets.upload_icon}
                 alt=""
               />
               <img
